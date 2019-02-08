@@ -7,11 +7,13 @@ then
     sudo mv apache-maven-3.3.9 maven
 
     cd /etc/profile.d/
+    export M2_HOME=/opt/maven
+    export PATH=${M2_HOME}/bin:${PATH}
     cat <<EOF > mavenenv.sh
         M2_HOME=/opt/maven
         PATH=${M2_HOME}/bin:${PATH}
-        export M2_HOME
         export PATH
+        export M2_HOME
 EOF
 
     sudo chmod +x /etc/profile.d/mavenenv.sh

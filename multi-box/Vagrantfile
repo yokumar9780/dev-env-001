@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "mongo" do |mongo|
+      mongo.vm.box= "bento/ubuntu-16.04"
+      mongo.vm.provider "virtualbox" do |vb|
+          vb.memory = "512"
+      end
+      mongo.vm.network "private_network", ip: "192.168.33.20"
+      mongo.vm.provision "file", source: "../files/mongod.conf", destination: "~/mongod.config"
+      mongo.vm.provision "shell", path: "../provisioners/install-mongo.sh"
+    end
+
+    config.vm.define "docker" do |dock|
+      dock.vm.box= "bento/ubuntu-16.04"
+      dock.vm.network "forwarded_port", guest: 3000, host: 8080
+      dock.vm.provider "virtualbox" do |vb|
+          vb.memory = "512"
+      end
+      dock.vm.network "private_network", ip: "192.168.33.10"
+      dock.vm.provision "shell", path: "../provisioners/install-docker.sh"
+    end
+end
