@@ -1,0 +1,18 @@
+[gui]
+[user]
+	name = yokumar9780
+	email = yokum.9780@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = true
+[alias]
+    logp = log --pretty=shortlog
+     ci = commit -a
+     co = checkout
+     st = status
+[pretty]
+     shortlog = format:%C(auto,yellow)%h %C(auto,magenta)% %C(auto,cyan)%>(12,trunc)%ad%C(auto,green) %<(17,trunc)%aN %C(auto,reset)%s%C(auto,red)% gD% D
