@@ -1,0 +1,9 @@
+.terraform
+github.tf
+*tfstate*
+crash.log
+*.key
+*.pem
+*.zip
+.vagrant
+.layers
