@@ -8,7 +8,7 @@
  
 ## Usages
  ```sh
- # Go the the Vagrantfile path & run vagrant up to create new box 
+ # Go the the Vagrantfile location & run vagrant up to create box 
  cd ../dev-env
  vagrant up 
  # connect to box
